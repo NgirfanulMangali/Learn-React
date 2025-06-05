@@ -6,7 +6,7 @@
 ### Step 1: Pass Props to the Child Component
 so give any props (properti) to Male for instance the following bellow i used string and number;
 
-// Parent Component
+``` js // Parent Component
 export default function MyBrother() {
   return (
     <Male
@@ -15,11 +15,11 @@ export default function MyBrother() {
     />
   )
 }
-
+```
 ### Step 2: Send The Props to the Child Component
 After that send the props to the child component and to usage the props it similiar like function parameter but in the learning props you only adding curly bracket inside brackets
 
-```// Child Component
+``` js // Child Component
 function Male({ name, age }) {
   return (
     <p>
