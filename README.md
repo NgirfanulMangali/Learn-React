@@ -19,7 +19,7 @@ export default function MyBrother() {
 ### Step 2: Send The Props to the Child Component
 After that send the props to the child component and to usage the props it similiar like function parameter but in the learning props you only adding curly bracket inside brackets
 
-<pre><code>``` // Child Component
+```// Child Component
 function Male({ name, age }) {
   return (
     <p>
@@ -35,5 +35,5 @@ export default function MyBrother() {
       age={25}
     />
   )
-} ```</code></pre>
+}```
 
