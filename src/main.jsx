@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import FeedbackForm from './App.jsx'
+import PackingList from './App.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    < FeedbackForm />
+    < PackingList />
 
   </React.StrictMode>,
 )

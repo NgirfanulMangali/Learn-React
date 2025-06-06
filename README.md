@@ -35,5 +35,18 @@ export default function MyBrother() {
       age={25}
     />
   )
-}```
+}
+```
 
+ # State
+ #####    In React, states are arbitrary data that you can declare and manage in your components. To create a state in React, you need to call the useState hook as shown below:
+
+ ```js import { useState } from 'react'
+
+function ParentComponent() {
+  const [name, setName] = useState('John')
+
+}
+
+export default ParentComponent
+```
