@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Page from './App.jsx'
+import Form from './App.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    < Page />
+    < Form />
 
   </React.StrictMode>,
 )

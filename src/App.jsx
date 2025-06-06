@@ -1,53 +1,36 @@
-import { useState } from 'react';
-import { sculptureList } from './data.jsx';
+import { useState } from "react";
 
-export default function Gallery() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+export default function Form() {
+  const [first, setfirst] = useState('');
+  const [last, setlast] = useState('');
 
-  let hasPrev = index > 0;
-  let hasNext = index < sculptureList.length - 1;
-
-  function handlePrevClick() {
-    if (hasPrev) {
-      setIndex(index - 1);
-    }
+  function handleFirstNameChange(e) {
+    setfirst(e.target.value)
   }
 
-  function handleNextClick() {
-    if (hasNext) {
-      setIndex(index + 1);
-    }
-  }
-  function handleMoreClick() {
-    setShowMore(!showMore);
+  function handleLastNameChange(e) {
+    setlast(e.target.value)
   }
 
-  let sculpture = sculptureList[index];
+  function handleReset() {
+    setfirst('')
+    setlast('')
+  }
+
   return (
-    <>
-      <button onClick={handlePrevClick}>
-        Previously
-      </button>
-      <button onClick={handleNextClick}>
-        Next
-      </button>
-      <h2>
-        <i>{sculpture.name} </i>
-        by {sculpture.artist}
-      </h2>
-      <h3>
-        ({index + 1} of {sculptureList.length})
-      </h3>
-      <button onClick={handleMoreClick}>
-        {showMore ? 'Hide' : 'Show'} details
-      </button>
-      {showMore && <p>{sculpture.description}</p>}
-      <img
-        src={sculpture.url}
-        alt={sculpture.alt}
+    <form onSubmit={e => e.preventDefault()}>
+      <input
+        placeholder="First name"
+        value={first}
+        onChange={handleFirstNameChange}
       />
-    </>
+      <input
+        placeholder="Last name"
+        value={last}
+        onChange={handleLastNameChange}
+      />
+      <h1>Hi, {first} {last}</h1>
+      <button onClick={handleReset}>Reset</button>
+    </form>
   );
 }
-
