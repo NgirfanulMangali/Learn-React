@@ -1,36 +1,24 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function Form() {
-  const [first, setfirst] = useState('');
-  const [last, setlast] = useState('');
-
-  function handleFirstNameChange(e) {
-    setfirst(e.target.value)
+export default function FeedbackForm() {
+  const [isSent, setIsSent] = useState(false);
+  const [message, setMessage] = useState('');
+  if (isSent) {
+    return <h1>Thank you!</h1>;
   }
-
-  function handleLastNameChange(e) {
-    setlast(e.target.value)
-  }
-
-  function handleReset() {
-    setfirst('')
-    setlast('')
-  }
-
   return (
-    <form onSubmit={e => e.preventDefault()}>
-      <input
-        placeholder="First name"
-        value={first}
-        onChange={handleFirstNameChange}
+    <form onSubmit={e => {
+      e.preventDefault();
+      alert(`Sending: "${message}"`);
+      setIsSent(true);
+    }}>
+      <textarea
+        placeholder="Message"
+        value={message}
+        onChange={e => setMessage(e.target.value)}
       />
-      <input
-        placeholder="Last name"
-        value={last}
-        onChange={handleLastNameChange}
-      />
-      <h1>Hi, {first} {last}</h1>
-      <button onClick={handleReset}>Reset</button>
+      <br />
+      <button type="submit">Send</button>
     </form>
   );
 }
