@@ -50,3 +50,17 @@ function ParentComponent() {
 
 export default ParentComponent
 ```
+#  React Conditional Rendering
+#####  You can control what output is being rendered by a component by implementing conditional rendering in your JSX code.
+``` js function App(props) {
+  const { user } = props
+
+  if (user) {
+    return <button>Logout</button>}
+  return <button>Login</button>}
+
+export default App
+```
+##### You don't need to add an `else` statement in the component because React will stop further processes once it reaches a `return` statement.
+
+#####    In the example above, React will render the logout button when the `user` value is truthy, and the login button when `user` is falsy.
