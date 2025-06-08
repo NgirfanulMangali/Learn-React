@@ -1,25 +1,17 @@
-function Button({ onClick, children }) {
-  return (
-    <button onClick={e => {
+export default function App() {
+  const [title, setTitle] = useState('');
 
-      onClick();
-    }}>
-      {children}
-    </button>
-  );
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    const task = await response.json();
+    console.log(task)
+    setTitle(task.title);
+  };
+
+  return <h1>{title}</h1>;
 }
 
-export default function Toolbar() {
-  return (
-    <div className="Toolbar" onClick={() => {
-      alert('You clicked on the toolbar!');
-    }}>
-      <Button onClick={() => alert('Playing!')}>
-        Play Movie
-      </Button>
-      <Button onClick={() => alert('Uploading!')}>
-        Upload Image
-      </Button>
-    </div>
-  );
-}
